@@ -1,7 +1,7 @@
 "use client";
 import {useState} from "react";
-import * as pdfjsLib from "pdfjs-dist";
-pdfjsLib.GlobalWorkerOptions.workerSrc = https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs;
+mport { GlobalWorkerOptions, getDocument } from "pdfjs-dist";
+GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
 type Field={label:string;value:string};
 function find(text:string, patterns:RegExp[]){for(const p of patterns){const m=text.match(p);if(m?.[1])return m[1].trim()}return ""}
 function extract(text:string){
