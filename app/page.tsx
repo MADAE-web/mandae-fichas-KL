@@ -1,7 +1,7 @@
 "use client";
 import {useState} from "react";
-import { GlobalWorkerOptions, getDocument } from "pdfjs-dist";
-
+import { GlobalWorkerOptions, getDocument, version } from "pdfjs-dist";
+GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${version}/build/pdf.worker.min.mjs`;
 GlobalWorkerOptions.workerSrc = new URL("pdfjs-dist/build/pdf.worker.min.mjs", import.meta.url).toString();
 
 type Field={label:string;value:string};
